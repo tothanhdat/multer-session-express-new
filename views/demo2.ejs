@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <strong>LIST USER</strong>
+    <ul>
+        <%usersTest.forEach(item => {%>
+            <li> <%= item.username %></li>
+                <%item.images.forEach(image => {%>
+                    <img src="/upload/<%=image%>" height="60" width="60" alt="">
+                <%})%>
+            <a href="/user/remove2/<%=item.username%>">
+                <button>Remove</button>
+            </a>
+        <%})%>
+    </ul>
+    <br><br>
+    <form action="/user/add-user2" method="POST" enctype="multipart/form-data">
+        <input type="text" name="username">
+        <br>
+        <input type="file" name="images">
+        <br>
+        <button type="submit">Add User</button>
+    </form>
+</body>
+</html>
